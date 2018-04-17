@@ -122,11 +122,6 @@ void execute_commands(COMMAND *commlist) {
       if (strcmp (commlist->cmd,"filtro") == 0) //checks if it is a command implemented by user
         execute_filtro(commlist);
 
-      if (strcmp (commlist->argv[commlist->argc-1],"&") == 0){
-        commlist->argv[commlist->argc-1] = NULL;
-        background_exec = 1;
-      }
-
 
       if (inputfile!=NULL && i==0) {
         int in = open (inputfile, O_RDWR);
