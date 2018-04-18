@@ -65,11 +65,13 @@ int main(int argc, char* argv[]) {
       }
     }
     free(linha);
+    numberpipes = 0;
   }
 }
 
 
 void print_parse(COMMAND* commlist) {
+  /*
   int n, i;
 
   printf("---------------------------------------------------------\n");
@@ -88,6 +90,7 @@ void print_parse(COMMAND* commlist) {
     n++;
   }
   printf("---------------------------------------------------------\n");
+  */
 }
 
 
@@ -102,6 +105,14 @@ void free_commlist(COMMAND *commlist){ //free allocated memory
 
 
 void execute_commands(COMMAND *commlist) {
+  COMMAND *x;
+  x=commlist;
+
+  while (x!=NULL) {
+    numberpipes++;
+    x = commlist->next;
+  }
+
   int fd[numberpipes][2];
 
   int i=0;
