@@ -110,7 +110,7 @@ void execute_commands(COMMAND *commlist) {
 
   while (x!=NULL) {
     numberpipes++;
-    x = commlist->next;
+    x = x->next;
   }
 
   int fd[numberpipes][2];
